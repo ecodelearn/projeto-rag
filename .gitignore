@@ -1,6 +1,7 @@
 # Conteudo protegido / terceiros (nao publicar)
 downloads/
 sources/
+frameworks/
 
 # Ambiente local
 .venv/

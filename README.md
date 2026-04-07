@@ -42,6 +42,12 @@ Construir uma base de conhecimento **solida, auditavel e reutilizavel** para IA 
 
 ![Radar de qualidade por criterio](assets/quality_radar.png)
 
+- **Rodada 7 — Piloto LightRAG (framework externo)**
+  - escopo: `sandeco_rag_book_v1`, 3 perguntas, 80 chunks amostrados
+  - baseline: 16.67/20 | 18.38s
+  - LightRAG: 16.00/20 | 37.58s
+  - status: piloto inicial concluido (indicador, nao decisao final)
+
 ## Uso diario (chat RAG)
 Script operacional:
 - `scripts/rag_daily_chat.py`

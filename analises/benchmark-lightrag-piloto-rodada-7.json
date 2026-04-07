@@ -1,0 +1,50 @@
+{
+  "collection": "sandeco_rag_book_v1",
+  "questions": [
+    "Qual a diferenca entre RAG classico, CRAG e Agentic RAG?",
+    "Como funciona a fase de indexacao no RAG e por que ela e importante?",
+    "Quando vale usar busca hibrida em vez de apenas busca vetorial?"
+  ],
+  "docs_sampled": 80,
+  "index_status": "rebuilt",
+  "avg": {
+    "baseline_score": 16.67,
+    "lightrag_score": 16.0,
+    "baseline_s": 18.38,
+    "lightrag_s": 37.58
+  },
+  "wins": {
+    "baseline": 2,
+    "lightrag": 1,
+    "draw": 0
+  },
+  "rows": [
+    {
+      "question": "Qual a diferenca entre RAG classico, CRAG e Agentic RAG?",
+      "baseline_score": 10.0,
+      "lightrag_score": 19.0,
+      "baseline_s": 21.14,
+      "lightrag_s": 13.51,
+      "winner": "A",
+      "comentario": "A apresenta uma explicação coesa e completa das três abordagens, incluindo CRAG, mantendo consistência com o enunciado. B, embora cuidadosa, aponta a ausência de definição de CRAG no material fornecido e introduz termos não alinhados (Adaptive RAG) que criam confusão, resultando em menor precisão, cobertura e aderência ao contexto. Recomenda-se verificar a definição de CRAG no material original e manter consistência de termos (CRAG vs Adaptive RAG) ao comparar."
+    },
+    {
+      "question": "Como funciona a fase de indexacao no RAG e por que ela e importante?",
+      "baseline_score": 20.0,
+      "lightrag_score": 15.0,
+      "baseline_s": 11.4,
+      "lightrag_s": 47.33,
+      "winner": "B",
+      "comentario": "A traz fundamentos corretos sobre indexação, mas B apresenta uma estrutura mais clara e completa: passos explícitos, foco no índice vetorial, justificativas de importância e observações de contexto que alinham melhor com o fluxo de RAG (offline indexing, recuperação rápida, geração)."
+    },
+    {
+      "question": "Quando vale usar busca hibrida em vez de apenas busca vetorial?",
+      "baseline_score": 20.0,
+      "lightrag_score": 14.0,
+      "baseline_s": 22.61,
+      "lightrag_s": 51.91,
+      "winner": "A",
+      "comentario": "A apresenta maior precisão, cobertura, clareza e aderência ao contexto de Adaptive RAG, incluindo descrição de fluxo, arquitetura e práticas. B é mais geral e menos detalhado, com referências-placeholder e menos foco prático para implementação."
+    }
+  ]
+}
