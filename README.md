@@ -97,6 +97,7 @@ source .venv/bin/activate
 
 python /home/ecode/Documents/projetos/projeto-rag/scripts/plot_benchmark_overview.py
 python /home/ecode/Documents/projetos/projeto-rag/scripts/plot_quality_radar.py
+python /home/ecode/Documents/projetos/projeto-rag/scripts/plot_frameworks_status.py
 ```
 
 ## Proximos passos
@@ -115,6 +116,8 @@ python /home/ecode/Documents/projetos/projeto-rag/scripts/plot_quality_radar.py
 - EasyRAG: piloto funcional bloqueado por requisitos de ambiente (GPU/dependencias/provider padrao GLM).
 - RAG-Anything: rodada 9 de viabilidade concluida com status `pilot_partial` (faltam MinerU/LibreOffice/GPU no ambiente atual).
 - Proximo externo recomendado: repetir piloto funcional do RAG-Anything em ambiente dedicado multimodal.
+
+![Status de prontidao dos frameworks](assets/frameworks_status.png)
 
 ---
 Se este projeto te ajudou, abra uma issue com sugestoes de experimento ou benchmark adicional.
