@@ -36,9 +36,11 @@ Construir uma base de conhecimento **solida, auditavel e reutilizavel** para IA 
   - novelty@8 do crag vs fusion: ~0.22
 
 - **Rodada 6 — Avaliacao qualitativa cega**
-  - baseline: 18.33/20
-  - fusion: 17.78/20
-  - crag: 18.72/20
+  - baseline: 17.11/20
+  - fusion: 17.56/20
+  - crag: 16.11/20
+
+![Radar de qualidade por criterio](assets/quality_radar.png)
 
 ## Uso diario (chat RAG)
 Script operacional:

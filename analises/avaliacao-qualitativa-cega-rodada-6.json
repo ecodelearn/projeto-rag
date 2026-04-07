@@ -1,15 +1,35 @@
 {
   "avg_scores": {
-    "baseline": 18.33,
-    "fusion": 17.78,
-    "crag": 18.72
+    "baseline": 17.11,
+    "fusion": 17.56,
+    "crag": 16.11
   },
   "rank_points": {
-    "baseline": 15,
-    "fusion": 18,
-    "crag": 21
+    "baseline": 20,
+    "fusion": 21,
+    "crag": 13
   },
-  "avg_elapsed_s": 96.71,
+  "avg_elapsed_s": 102.2,
+  "avg_dims": {
+    "baseline": {
+      "precisao": 4.22,
+      "cobertura": 4.33,
+      "clareza": 4.22,
+      "aderencia_contexto": 4.33
+    },
+    "fusion": {
+      "precisao": 4.22,
+      "cobertura": 4.56,
+      "clareza": 4.22,
+      "aderencia_contexto": 4.56
+    },
+    "crag": {
+      "precisao": 4.0,
+      "cobertura": 4.11,
+      "clareza": 3.89,
+      "aderencia_contexto": 4.11
+    }
+  },
   "results": [
     {
       "collection": "sandeco_prompts_v1",
@@ -17,22 +37,22 @@
       "action_crag": "CORRECT",
       "web_chunks": 0,
       "scores_total": {
-        "baseline": 18.0,
-        "fusion": 16.0,
-        "crag": 19.5
+        "baseline": 16.0,
+        "fusion": 19.0,
+        "crag": 14.0
       },
       "ranking": [
-        "A",
+        "B",
         "C",
-        "B"
+        "A"
       ],
       "label_to_method": {
         "A": "crag",
         "B": "fusion",
         "C": "baseline"
       },
-      "judge_comment": "A oferece a avaliação mais completa e estruturada, incluindo templates e exemplos; C é sólido e útil, mas menos abrangente que A; B é bom, porém menos alinhado ao formato JSON exigido.",
-      "elapsed_s": 116.98
+      "judge_comment": "Avaliando objetivamente, a resposta B oferece a maior clareza, estrutura e cobertura de templates para prompts técnicos; A possui conteúdo útil porém menos estruturado e contém um erro pontual que afeta a precisão; C é sólido e bem definido, mas menos expansivo que B.",
+      "elapsed_s": 112.89
     },
     {
       "collection": "sandeco_guardrails_v1",
@@ -40,22 +60,22 @@
       "action_crag": "CORRECT",
       "web_chunks": 0,
       "scores_total": {
-        "baseline": 19.0,
-        "fusion": 12.0,
-        "crag": 17.0
+        "baseline": 20.0,
+        "fusion": 17.0,
+        "crag": 12.0
       },
       "ranking": [
         "A",
-        "C",
-        "B"
+        "B",
+        "C"
       ],
       "label_to_method": {
         "A": "baseline",
         "B": "fusion",
         "C": "crag"
       },
-      "judge_comment": "A oferece o conjunto mais completo de guardrails e critérios; C apresenta uma versão prática, clara e direta; B é menos focal e menos detalhado sobre guardrails.",
-      "elapsed_s": 85.54
+      "judge_comment": "A oferece o conjunto mais completo de guardrails e fluxo iterativo, com prompts e métricas bem definidas. B é igualmente robusta e prática, mas um pouco menos detalhada que A. C é mais introdutório e requer maior definição de guardrails e fluxo para alinhar ao objetivo.",
+      "elapsed_s": 91.83
     },
     {
       "collection": "sandeco_python_ia_v1",
@@ -63,8 +83,8 @@
       "action_crag": "CORRECT",
       "web_chunks": 0,
       "scores_total": {
-        "baseline": 17.0,
-        "fusion": 20.0,
+        "baseline": 12.0,
+        "fusion": 16.0,
         "crag": 20.0
       },
       "ranking": [
@@ -77,8 +97,8 @@
         "B": "fusion",
         "C": "baseline"
       },
-      "judge_comment": "A oferece o panorama mais completo com exemplo de código e fluxo end-to-end; B reforça o pipeline, integração e deploy com boa clareza; C apresenta uma visão sólida porém menos detalhada que A/B.",
-      "elapsed_s": 107.64
+      "judge_comment": "A oferece maior abrangência e exemplos práticos; B apresenta uma solução sólida com passos práticos; C é objetivo, porém menos detalhado. Todos estão alinhados ao contexto introdutório, com A sendo o mais completo.",
+      "elapsed_s": 92.41
     },
     {
       "collection": "sandeco_crewai1_v1",
@@ -86,22 +106,22 @@
       "action_crag": "CORRECT",
       "web_chunks": 0,
       "scores_total": {
-        "baseline": 18.0,
+        "baseline": 16.0,
         "fusion": 20.0,
-        "crag": 18.0
+        "crag": 16.0
       },
       "ranking": [
         "B",
-        "C",
-        "A"
+        "A",
+        "C"
       ],
       "label_to_method": {
         "A": "baseline",
         "B": "fusion",
         "C": "crag"
       },
-      "judge_comment": "Resposta B oferece a explicação mais completa e prática, incluindo fluxo, paralelização e hierarquia. C é sólido e claro, cobrindo o essencial com exemplos, enquanto A está correto, mas menos abrangente em comparação com B e C.",
-      "elapsed_s": 98.01
+      "judge_comment": "Resposta B apresenta a visão mais completa, precisa e alinhada ao contexto, com definição clara de Agent, Task, Crew, e fluxo. A oferece bom passo a passo e exemplos; C é claro, mas menos abrangente.",
+      "elapsed_s": 112.21
     },
     {
       "collection": "sandeco_crewai2_v1",
@@ -109,22 +129,22 @@
       "action_crag": "CORRECT",
       "web_chunks": 0,
       "scores_total": {
-        "baseline": 17.0,
-        "fusion": 19.0,
-        "crag": 20.0
+        "baseline": 20.0,
+        "fusion": 16.0,
+        "crag": 16.0
       },
       "ranking": [
+        "B",
         "A",
-        "C",
-        "B"
+        "C"
       ],
       "label_to_method": {
         "A": "fusion",
         "B": "baseline",
         "C": "crag"
       },
-      "judge_comment": "A é o mais detalhado e alinhado com o ecossistema CrewAI (Tools, @tool, Streamlit). C é estruturado e abrangente, com foco em governança e IA. B é direto e conciso, mas menos cobertivo.",
-      "elapsed_s": 84.97
+      "judge_comment": "A resposta B oferece a lista mais abrangente e bem alinhada ao ecossistema CrewAI intermediário, cobrindo APIs, bancos de dados, IA, mensageria, observabilidade, segurança e UI. A e C são sólidas, mas com cobertura e consistência levemente menores.",
+      "elapsed_s": 111.41
     },
     {
       "collection": "sandeco_mcp_a2a_v1",
@@ -133,8 +153,8 @@
       "web_chunks": 0,
       "scores_total": {
         "baseline": 18.0,
-        "fusion": 18.0,
-        "crag": 18.0
+        "fusion": 17.0,
+        "crag": 19.0
       },
       "ranking": [
         "A",
@@ -146,8 +166,8 @@
         "B": "baseline",
         "C": "fusion"
       },
-      "judge_comment": "A oferece a visão mais completa e alinhada ao contexto, cobrindo recursos, segurança e cooperação entre agentes; B é bem estruturada e clara, mas menos abrangente; C é direto e claro, porém mais sintético e menos detalhado.",
-      "elapsed_s": 83.58
+      "judge_comment": "A apresenta o maior nível de detalhamento com foco claro em arquitetura vertical (MCP) e horizontal (A2A), incluindo considerações de segurança e de interoperabilidade. B é objetivo e bem estruturado, porém menos completo. C é competente, mas usa termos variáveis (ex.: 'Produtos') e ligeira ambiguidade que impacta clareza em comparação com B.",
+      "elapsed_s": 92.07
     },
     {
       "collection": "sandeco_rag_book_v1",
@@ -155,8 +175,8 @@
       "action_crag": "CORRECT",
       "web_chunks": 0,
       "scores_total": {
-        "baseline": 20.0,
-        "fusion": 18.0,
+        "baseline": 17.0,
+        "fusion": 16.0,
         "crag": 16.0
       },
       "ranking": [
@@ -169,8 +189,8 @@
         "B": "fusion",
         "C": "crag"
       },
-      "judge_comment": "A apresenta a comparação mais completa e fiel ao material, incluindo tratamento claro de CRAG como não definido; B é uma versão igualmente sólida e mais concisa; C oferece uma visão mais genérica de CRAG e, portanto, ligeiramente menos aderente ao contexto específico.",
-      "elapsed_s": 108.39
+      "judge_comment": "A oferece a visão mais abrangente, incluindo detalhes de implementação e a limitação explícita de CRAG. B é claro e objetivo, com explicação explícita de CRAG não definido. C é sólido, mas menos detalhado que A e ligeiramente menos completo em cobertura.",
+      "elapsed_s": 138.82
     },
     {
       "collection": "sandeco_orange_v1",
@@ -178,32 +198,9 @@
       "action_crag": "CORRECT",
       "web_chunks": 0,
       "scores_total": {
-        "baseline": 19.0,
-        "fusion": 19.0,
-        "crag": 20.0
-      },
-      "ranking": [
-        "B",
-        "A",
-        "C"
-      ],
-      "label_to_method": {
-        "A": "fusion",
-        "B": "crag",
-        "C": "baseline"
-      },
-      "judge_comment": "Resposta B oferece o equilíbrio ideal entre abrangência e clareza, mantendo o foco no que é relevante para iniciantes. A apresenta um guia mais extenso e detalhado, útil para contextos aprofundados, enquanto C também cobre os pontos-chave, mas com menos concisão. Todas mantêm aderência ao tema de IA visual e ciência de dados no Orange Canvas.",
-      "elapsed_s": 71.38
-    },
-    {
-      "collection": "sandeco_deep_learning_v1",
-      "question": "Quais fundamentos de deep learning sao mais importantes para comecar projetos?",
-      "action_crag": "CORRECT",
-      "web_chunks": 0,
-      "scores_total": {
-        "baseline": 19.0,
+        "baseline": 16.0,
         "fusion": 18.0,
-        "crag": 20.0
+        "crag": 16.0
       },
       "ranking": [
         "A",
@@ -212,11 +209,34 @@
       ],
       "label_to_method": {
         "A": "fusion",
+        "B": "crag",
+        "C": "baseline"
+      },
+      "judge_comment": "A oferece maior profundidade e exemplos práticos, mantendo aderência ao contexto; C também é completo e foca em fluxo visual com IA; B é sólido, mas ligeiramente menos abrangente que A/C.",
+      "elapsed_s": 76.92
+    },
+    {
+      "collection": "sandeco_deep_learning_v1",
+      "question": "Quais fundamentos de deep learning sao mais importantes para comecar projetos?",
+      "action_crag": "CORRECT",
+      "web_chunks": 0,
+      "scores_total": {
+        "baseline": 19.0,
+        "fusion": 19.0,
+        "crag": 16.0
+      },
+      "ranking": [
+        "A",
+        "B",
+        "C"
+      ],
+      "label_to_method": {
+        "A": "fusion",
         "B": "baseline",
         "C": "crag"
       },
-      "judge_comment": "A oferece a visão mais abrangente, incluindo ético, deploy e prototipagem; C destaca-se pela clareza e plano de ação prático; B é sólido no domínio médico/autônomo, mas menos abrangente em MLOps.",
-      "elapsed_s": 113.88
+      "judge_comment": "A e B oferecem guias amplos, práticos e bem alinhados ao contexto; C traz foco útil para visão médica e sensoriamento, mas é menos abrangente para todo o pipeline de projeto em comparação aos demais.",
+      "elapsed_s": 91.26
     }
   ]
 }

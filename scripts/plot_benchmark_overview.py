@@ -5,7 +5,7 @@ out = Path('/home/ecode/Documents/projetos/projeto-rag/assets/benchmark_overview
 out.parent.mkdir(parents=True, exist_ok=True)
 
 labels = ['Baseline', 'Fusion', 'CRAG']
-qualidade = [18.33, 17.78, 18.72]
+qualidade = [17.11, 17.56, 16.11]
 latencia = [0.03, 9.37, 7.67]
 
 fig, ax1 = plt.subplots(figsize=(8, 4.5))

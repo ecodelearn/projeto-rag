@@ -231,6 +231,11 @@ def main():
 
     results = []
     method_totals = {'baseline': [], 'fusion': [], 'crag': []}
+    method_dims = {
+        'baseline': {'precisao': [], 'cobertura': [], 'clareza': [], 'aderencia_contexto': []},
+        'fusion': {'precisao': [], 'cobertura': [], 'clareza': [], 'aderencia_contexto': []},
+        'crag': {'precisao': [], 'cobertura': [], 'clareza': [], 'aderencia_contexto': []},
+    }
     rank_points = {'baseline': 0, 'fusion': 0, 'crag': 0}
 
     for case in CASES:
@@ -275,6 +280,8 @@ def main():
             s = scores.get(label, {}) if isinstance(scores, dict) else {}
             if method:
                 per_method_scores[method] = total_score(s)
+                for k in ('precisao', 'cobertura', 'clareza', 'aderencia_contexto'):
+                    method_dims[method][k].append(float(s.get(k, 0)))
 
         for m in ('baseline', 'fusion', 'crag'):
             method_totals[m].append(per_method_scores[m])
@@ -302,6 +309,10 @@ def main():
         )
 
     avg_scores = {m: round(statistics.mean(vals), 2) if vals else 0.0 for m, vals in method_totals.items()}
+    avg_dims = {
+        m: {k: round(statistics.mean(v), 2) if v else 0.0 for k, v in dims.items()}
+        for m, dims in method_dims.items()
+    }
     avg_elapsed = round(statistics.mean(r['elapsed_s'] for r in results), 2)
 
     lines = [
@@ -318,6 +329,11 @@ def main():
         f"- Score medio total crag: **{avg_scores['crag']:.2f}/20**",
         f"- Pontos de ranking acumulados (1o=3, 2o=2, 3o=1): baseline={rank_points['baseline']}, fusion={rank_points['fusion']}, crag={rank_points['crag']}",
         f'- Tempo medio por caso (pipeline completo): **{avg_elapsed:.2f}s**',
+        '',
+        '## Medias por criterio (0-5)',
+        f"- Baseline: precisao={avg_dims['baseline']['precisao']}, cobertura={avg_dims['baseline']['cobertura']}, clareza={avg_dims['baseline']['clareza']}, aderencia={avg_dims['baseline']['aderencia_contexto']}",
+        f"- Fusion: precisao={avg_dims['fusion']['precisao']}, cobertura={avg_dims['fusion']['cobertura']}, clareza={avg_dims['fusion']['clareza']}, aderencia={avg_dims['fusion']['aderencia_contexto']}",
+        f"- CRAG: precisao={avg_dims['crag']['precisao']}, cobertura={avg_dims['crag']['cobertura']}, clareza={avg_dims['crag']['clareza']}, aderencia={avg_dims['crag']['aderencia_contexto']}",
         '',
         '## Resultado por colecao',
         '',
@@ -343,6 +359,7 @@ def main():
                 'avg_scores': avg_scores,
                 'rank_points': rank_points,
                 'avg_elapsed_s': avg_elapsed,
+                'avg_dims': avg_dims,
                 'results': results,
             },
             ensure_ascii=False,
