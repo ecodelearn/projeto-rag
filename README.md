@@ -113,7 +113,8 @@ python /home/ecode/Documents/projetos/projeto-rag/scripts/plot_quality_radar.py
 #### Estado atual dos externos
 - LightRAG: piloto funcional executado com benchmark controlado.
 - EasyRAG: piloto funcional bloqueado por requisitos de ambiente (GPU/dependencias/provider padrao GLM).
-- Proximo externo recomendado: RAG-Anything (piloto de viabilidade), apos definir ambiente dedicado.
+- RAG-Anything: rodada 9 de viabilidade concluida com status `pilot_partial` (faltam MinerU/LibreOffice/GPU no ambiente atual).
+- Proximo externo recomendado: repetir piloto funcional do RAG-Anything em ambiente dedicado multimodal.
 
 ---
 Se este projeto te ajudou, abra uma issue com sugestoes de experimento ou benchmark adicional.

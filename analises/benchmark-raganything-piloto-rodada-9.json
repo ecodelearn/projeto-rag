@@ -1,0 +1,17 @@
+{
+  "status": "pilot_partial",
+  "checks": {
+    "repo_exists": true,
+    "requirements_exists": true,
+    "python_modules": "{'raganything': False, 'lightrag': False, 'docling': False, 'paddleocr': False, 'pypdf': False}",
+    "mineru": "mineru_missing",
+    "libreoffice": "libreoffice_missing",
+    "gpu_available": false,
+    "gpu_info": "NVIDIA-SMI has failed because it couldn't communicate with the NVIDIA driver. Make sure that the latest NVIDIA driver is installed and running."
+  },
+  "blockers": [
+    "MinerU nao encontrado (necessario para pipeline multimodal padrao).",
+    "LibreOffice ausente (impacta parsing de documentos Office).",
+    "Sem GPU dedicada detectada para cenarios multimodais pesados."
+  ]
+}
