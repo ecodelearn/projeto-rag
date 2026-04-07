@@ -1,0 +1,222 @@
+{
+  "avg_scores": {
+    "baseline": 18.33,
+    "fusion": 17.78,
+    "crag": 18.72
+  },
+  "rank_points": {
+    "baseline": 15,
+    "fusion": 18,
+    "crag": 21
+  },
+  "avg_elapsed_s": 96.71,
+  "results": [
+    {
+      "collection": "sandeco_prompts_v1",
+      "question": "Quais principios praticos ajudam a escrever bons prompts para tarefas tecnicas?",
+      "action_crag": "CORRECT",
+      "web_chunks": 0,
+      "scores_total": {
+        "baseline": 18.0,
+        "fusion": 16.0,
+        "crag": 19.5
+      },
+      "ranking": [
+        "A",
+        "C",
+        "B"
+      ],
+      "label_to_method": {
+        "A": "crag",
+        "B": "fusion",
+        "C": "baseline"
+      },
+      "judge_comment": "A oferece a avaliação mais completa e estruturada, incluindo templates e exemplos; C é sólido e útil, mas menos abrangente que A; B é bom, porém menos alinhado ao formato JSON exigido.",
+      "elapsed_s": 116.98
+    },
+    {
+      "collection": "sandeco_guardrails_v1",
+      "question": "Como aplicar guardrails para reduzir respostas fora do objetivo em agentes?",
+      "action_crag": "CORRECT",
+      "web_chunks": 0,
+      "scores_total": {
+        "baseline": 19.0,
+        "fusion": 12.0,
+        "crag": 17.0
+      },
+      "ranking": [
+        "A",
+        "C",
+        "B"
+      ],
+      "label_to_method": {
+        "A": "baseline",
+        "B": "fusion",
+        "C": "crag"
+      },
+      "judge_comment": "A oferece o conjunto mais completo de guardrails e critérios; C apresenta uma versão prática, clara e direta; B é menos focal e menos detalhado sobre guardrails.",
+      "elapsed_s": 85.54
+    },
+    {
+      "collection": "sandeco_python_ia_v1",
+      "question": "Qual o papel do Python em pipelines de IA aplicada para iniciantes?",
+      "action_crag": "CORRECT",
+      "web_chunks": 0,
+      "scores_total": {
+        "baseline": 17.0,
+        "fusion": 20.0,
+        "crag": 20.0
+      },
+      "ranking": [
+        "A",
+        "B",
+        "C"
+      ],
+      "label_to_method": {
+        "A": "crag",
+        "B": "fusion",
+        "C": "baseline"
+      },
+      "judge_comment": "A oferece o panorama mais completo com exemplo de código e fluxo end-to-end; B reforça o pipeline, integração e deploy com boa clareza; C apresenta uma visão sólida porém menos detalhada que A/B.",
+      "elapsed_s": 107.64
+    },
+    {
+      "collection": "sandeco_crewai1_v1",
+      "question": "No CrewAI basico, como agentes, tarefas e crews se conectam?",
+      "action_crag": "CORRECT",
+      "web_chunks": 0,
+      "scores_total": {
+        "baseline": 18.0,
+        "fusion": 20.0,
+        "crag": 18.0
+      },
+      "ranking": [
+        "B",
+        "C",
+        "A"
+      ],
+      "label_to_method": {
+        "A": "baseline",
+        "B": "fusion",
+        "C": "crag"
+      },
+      "judge_comment": "Resposta B oferece a explicação mais completa e prática, incluindo fluxo, paralelização e hierarquia. C é sólido e claro, cobrindo o essencial com exemplos, enquanto A está correto, mas menos abrangente em comparação com B e C.",
+      "elapsed_s": 98.01
+    },
+    {
+      "collection": "sandeco_crewai2_v1",
+      "question": "No CrewAI intermediario, quais integracoes praticas sao mais comuns em automacoes?",
+      "action_crag": "CORRECT",
+      "web_chunks": 0,
+      "scores_total": {
+        "baseline": 17.0,
+        "fusion": 19.0,
+        "crag": 20.0
+      },
+      "ranking": [
+        "A",
+        "C",
+        "B"
+      ],
+      "label_to_method": {
+        "A": "fusion",
+        "B": "baseline",
+        "C": "crag"
+      },
+      "judge_comment": "A é o mais detalhado e alinhado com o ecossistema CrewAI (Tools, @tool, Streamlit). C é estruturado e abrangente, com foco em governança e IA. B é direto e conciso, mas menos cobertivo.",
+      "elapsed_s": 84.97
+    },
+    {
+      "collection": "sandeco_mcp_a2a_v1",
+      "question": "Qual a diferenca entre MCP e A2A na arquitetura de agentes?",
+      "action_crag": "CORRECT",
+      "web_chunks": 0,
+      "scores_total": {
+        "baseline": 18.0,
+        "fusion": 18.0,
+        "crag": 18.0
+      },
+      "ranking": [
+        "A",
+        "B",
+        "C"
+      ],
+      "label_to_method": {
+        "A": "crag",
+        "B": "baseline",
+        "C": "fusion"
+      },
+      "judge_comment": "A oferece a visão mais completa e alinhada ao contexto, cobrindo recursos, segurança e cooperação entre agentes; B é bem estruturada e clara, mas menos abrangente; C é direto e claro, porém mais sintético e menos detalhado.",
+      "elapsed_s": 83.58
+    },
+    {
+      "collection": "sandeco_rag_book_v1",
+      "question": "Qual a diferenca entre RAG classico, CRAG e Agentic RAG?",
+      "action_crag": "CORRECT",
+      "web_chunks": 0,
+      "scores_total": {
+        "baseline": 20.0,
+        "fusion": 18.0,
+        "crag": 16.0
+      },
+      "ranking": [
+        "A",
+        "B",
+        "C"
+      ],
+      "label_to_method": {
+        "A": "baseline",
+        "B": "fusion",
+        "C": "crag"
+      },
+      "judge_comment": "A apresenta a comparação mais completa e fiel ao material, incluindo tratamento claro de CRAG como não definido; B é uma versão igualmente sólida e mais concisa; C oferece uma visão mais genérica de CRAG e, portanto, ligeiramente menos aderente ao contexto específico.",
+      "elapsed_s": 108.39
+    },
+    {
+      "collection": "sandeco_orange_v1",
+      "question": "Como o Orange Canvas ajuda iniciantes em IA visual e ciencia de dados?",
+      "action_crag": "CORRECT",
+      "web_chunks": 0,
+      "scores_total": {
+        "baseline": 19.0,
+        "fusion": 19.0,
+        "crag": 20.0
+      },
+      "ranking": [
+        "B",
+        "A",
+        "C"
+      ],
+      "label_to_method": {
+        "A": "fusion",
+        "B": "crag",
+        "C": "baseline"
+      },
+      "judge_comment": "Resposta B oferece o equilíbrio ideal entre abrangência e clareza, mantendo o foco no que é relevante para iniciantes. A apresenta um guia mais extenso e detalhado, útil para contextos aprofundados, enquanto C também cobre os pontos-chave, mas com menos concisão. Todas mantêm aderência ao tema de IA visual e ciência de dados no Orange Canvas.",
+      "elapsed_s": 71.38
+    },
+    {
+      "collection": "sandeco_deep_learning_v1",
+      "question": "Quais fundamentos de deep learning sao mais importantes para comecar projetos?",
+      "action_crag": "CORRECT",
+      "web_chunks": 0,
+      "scores_total": {
+        "baseline": 19.0,
+        "fusion": 18.0,
+        "crag": 20.0
+      },
+      "ranking": [
+        "A",
+        "C",
+        "B"
+      ],
+      "label_to_method": {
+        "A": "fusion",
+        "B": "baseline",
+        "C": "crag"
+      },
+      "judge_comment": "A oferece a visão mais abrangente, incluindo ético, deploy e prototipagem; C destaca-se pela clareza e plano de ação prático; B é sólido no domínio médico/autônomo, mas menos abrangente em MLOps.",
+      "elapsed_s": 113.88
+    }
+  ]
+}
