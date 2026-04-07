@@ -81,10 +81,25 @@ Este projeto segue politica explicita de versionamento:
 - **Nao publicar** `.env`, tokens e credenciais.
 - Publicar apenas codigo proprio, scripts e resultados analiticos.
 
+## Reproduzir os graficos
+```bash
+cd "/home/ecode/Documents/projetos/projeto-rag/sources/rag_memory/02 - RAG with memory"
+source .venv/bin/activate
+
+python /home/ecode/Documents/projetos/projeto-rag/scripts/plot_benchmark_overview.py
+python /home/ecode/Documents/projetos/projeto-rag/scripts/plot_quality_radar.py
+```
+
 ## Proximos passos
 - rodada de validacao com frameworks externos (LightRAG, EasyRAG, RAG-Anything)
 - desenho de orquestracao adaptativa de producao
 - consolidacao final do artigo tecnico
+
+### Roadmap frameworks externos
+1. **LightRAG (piloto)**: comparar com stack atual nas mesmas perguntas/métricas
+2. **EasyRAG (piloto)**: medir friccao de operacao e custo
+3. **RAG-Anything (fase avancada)**: validar ganho multimodal/grafo
+4. Decisao de adocao: so promover se melhorar ao menos 2 eixos sem degradar os demais
 
 ---
 Se este projeto te ajudou, abra uma issue com sugestoes de experimento ou benchmark adicional.
