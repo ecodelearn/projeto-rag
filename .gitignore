@@ -1,0 +1,15 @@
+# Conteudo protegido / terceiros (nao publicar)
+downloads/
+sources/
+
+# Ambiente local
+.venv/
+__pycache__/
+*.pyc
+.env
+
+# SO/IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
