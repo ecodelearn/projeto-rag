@@ -102,10 +102,15 @@ python /home/ecode/Documents/projetos/projeto-rag/scripts/plot_quality_radar.py
 - consolidacao final do artigo tecnico
 
 ### Roadmap frameworks externos
-1. **LightRAG (piloto)**: comparar com stack atual nas mesmas perguntas/métricas
-2. **EasyRAG (piloto)**: medir friccao de operacao e custo
+1. **LightRAG (piloto)**: concluido (rodada 7)
+2. **EasyRAG (piloto)**: rodada 8 de viabilidade concluida (bloqueado no ambiente atual)
 3. **RAG-Anything (fase avancada)**: validar ganho multimodal/grafo
 4. Decisao de adocao: so promover se melhorar ao menos 2 eixos sem degradar os demais
+
+#### Estado atual dos externos
+- LightRAG: piloto funcional executado com benchmark controlado.
+- EasyRAG: piloto funcional bloqueado por requisitos de ambiente (GPU/dependencias/provider padrao GLM).
+- Proximo externo recomendado: RAG-Anything (piloto de viabilidade), apos definir ambiente dedicado.
 
 ---
 Se este projeto te ajudou, abra uma issue com sugestoes de experimento ou benchmark adicional.

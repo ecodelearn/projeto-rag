@@ -1,0 +1,19 @@
+{
+  "status": "pilot_blocked",
+  "checks": {
+    "repo_exists": true,
+    "gpu_available": false,
+    "gpu_info": "NVIDIA-SMI has failed because it couldn't communicate with the NVIDIA driver. Make sure that the latest NVIDIA driver is installed and running.",
+    "requirements_exists": true,
+    "requirements_count": 118,
+    "config_exists": true,
+    "uses_glm": true,
+    "has_dummy_keys": true,
+    "dependency_smoke": "{'llama_index': False, 'qdrant_client': False, 'rank_bm25': False, 'jieba': False}"
+  },
+  "blockers": [
+    "Sem GPU dedicada detectada para o perfil recomendado do EasyRAG (>=16GB).",
+    "Config padrao do EasyRAG depende de chaves GLM (llm_keys com placeholder).",
+    "Pipeline de referencia do EasyRAG esta acoplado a GLM-4 no config padrao."
+  ]
+}
