@@ -66,8 +66,8 @@ python /home/ecode/Documents/projetos/projeto-rag/scripts/rag_daily_chat.py --mo
 # Modo corretivo
 python /home/ecode/Documents/projetos/projeto-rag/scripts/rag_daily_chat.py --mode crag --collection auto
 
-# LightRAG (sem Neo4j)
-python /home/ecode/Documents/projetos/projeto-rag/scripts/rag_daily_chat_lightrag.py --collection sandeco_rag_book_v1 --mode hybrid
+# LightRAG (sem Neo4j, com roteamento automatico)
+python /home/ecode/Documents/projetos/projeto-rag/scripts/rag_daily_chat_lightrag.py --collection auto --mode hybrid
 ```
 
 ## Estrutura do repositorio
