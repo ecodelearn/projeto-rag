@@ -1,0 +1,86 @@
+{
+  "results": [
+    {
+      "book": "Prompts em Acao Vol. 1",
+      "collection": "sandeco_prompts_v1",
+      "pdf": "/home/ecode/Documents/projetos/obsidian/obsidian-vault/10 Fontes Brutas/PDFs/PROMPST-SANDECO/Prompts em Ação - Engenharia de Prompts Para Leigos - Sandeco Macedo-1.pdf",
+      "status": "ok",
+      "chunks": 139,
+      "seconds": 13.82,
+      "sha256": "60f4bd43a7c931b9caf3e60a77ac53508a80cdf55f0a2b396e3617a1e491fd8d"
+    },
+    {
+      "book": "Guardrails (Prompts Vol. 2)",
+      "collection": "sandeco_guardrails_v1",
+      "pdf": "/home/ecode/Documents/projetos/obsidian/obsidian-vault/10 Fontes Brutas/PDFs/GUARDRAILS-SANDECO/Branco_Prompts_em_Ação_vol_2__guardrails.pdf",
+      "status": "ok",
+      "chunks": 133,
+      "seconds": 15.05,
+      "sha256": "ff926004dbb55cab9c2ed225af353adaaa890ff8c12fe13619cfd298486899b1"
+    },
+    {
+      "book": "Python para Inteligencia Artificial",
+      "collection": "sandeco_python_ia_v1",
+      "pdf": "/home/ecode/Documents/projetos/obsidian/obsidian-vault/10 Fontes Brutas/PDFs/PYTHON-SANDECO/Python para Inteligência Artificial v4 Br.pdf",
+      "status": "ok",
+      "chunks": 314,
+      "seconds": 21.63,
+      "sha256": "dff8c241166e3034ab1797075fd13f4225f973c370252fedf54e44297d751873"
+    },
+    {
+      "book": "CrewAI Vol. 1 (Basico)",
+      "collection": "sandeco_crewai1_v1",
+      "pdf": "/home/ecode/Documents/projetos/obsidian/obsidian-vault/10 Fontes Brutas/PDFs/CREWAI-1-SANDECO/01___CrewAI_Livro_Básico - Branco.pdf",
+      "status": "ok",
+      "chunks": 308,
+      "seconds": 23.04,
+      "sha256": "93d46e943049205be726fc64e8ce522bd03e26fca5655f3477cc6bd5e3aa122b"
+    },
+    {
+      "book": "CrewAI Vol. 2 (Intermediario)",
+      "collection": "sandeco_crewai2_v1",
+      "pdf": "/home/ecode/Documents/projetos/obsidian/obsidian-vault/10 Fontes Brutas/PDFs/CREWAI-2-SADECO/CREWAI 2 VERSÃO FINAL.pdf",
+      "status": "ok",
+      "chunks": 373,
+      "seconds": 45.12,
+      "sha256": "37cd1f8850b2650140ef2651c8e3d33e3deb9002696b9fa84d2c12034b2a189e"
+    },
+    {
+      "book": "MCP e A2A",
+      "collection": "sandeco_mcp_a2a_v1",
+      "pdf": "/home/ecode/Documents/projetos/obsidian/obsidian-vault/10 Fontes Brutas/PDFs/MCP-E-A2A-SANDECO/MCP_Livro - Versão Final.pdf",
+      "status": "ok",
+      "chunks": 303,
+      "seconds": 22.89,
+      "sha256": "1786c825b95fc8cb9273f0d90d499df54f01787ecf378c370d6828578a77fead"
+    },
+    {
+      "book": "RAG",
+      "collection": "sandeco_rag_book_v1",
+      "pdf": "/home/ecode/Documents/projetos/obsidian/obsidian-vault/10 Fontes Brutas/PDFs/RAG-SANDECO/RAG Versão Final - branca.pdf",
+      "status": "ok",
+      "chunks": 519,
+      "seconds": 27.73,
+      "sha256": "62dc0c4bc0947561916aac7fda6796531588261093858e527433b45affa3bd17"
+    },
+    {
+      "book": "Orange Canvas",
+      "collection": "sandeco_orange_v1",
+      "pdf": "/home/ecode/Documents/projetos/obsidian/obsidian-vault/10 Fontes Brutas/PDFs/ORANGE-CANVAS-SANDECO/LIVRO v7 Final - INTELIGÊNCIA ARTIFICIAL VISUAL COM ORANGE CANVAS - SANDECO MACEDO - BRANCO.pdf",
+      "status": "ok",
+      "chunks": 204,
+      "seconds": 18.25,
+      "sha256": "73517b1ac8c52b34796160e0d8b31e756f351e5fe596f4162d67fdd360e67985"
+    },
+    {
+      "book": "Deep Learning (bonus)",
+      "collection": "sandeco_deep_learning_v1",
+      "pdf": "/home/ecode/Documents/projetos/obsidian/obsidian-vault/10 Fontes Brutas/PDFs/DEEP-LEARNING-SANDECO/Livro_Intensivo_de_Deep_Learning-1.pdf",
+      "status": "ok",
+      "chunks": 187,
+      "seconds": 17.16,
+      "sha256": "ca227a56df9bc3b81c5c2c313b37a65c6d1d6b813b521f2f64bdac6326ff9dca"
+    }
+  ],
+  "errors": []
+}
