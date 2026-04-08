@@ -1,41 +1,23 @@
 import type { ExtensionAPI } from "@mariozechner/pi-coding-agent";
 import { Type } from "@sinclair/typebox";
 import { promises as fs } from "node:fs";
-import { extname, join, relative, resolve } from "node:path";
+import { relative, resolve } from "node:path";
+import { stripAt, ensureInside, parseRagOutput, walkMarkdown, ParseError } from "./rag-obsidian-tools.utils.ts";
 
-function stripAt(path: string): string {
-  return path.startsWith("@") ? path.slice(1) : path;
-}
+function parseLastJson<T = unknown>(raw: string): T {
+  const txt = (raw || "").trim();
+  if (!txt) throw new Error("Saida vazia do script");
 
-function ensureInside(base: string, target: string): string {
-  const absBase = resolve(base);
-  const absTarget = resolve(target);
-  const rel = relative(absBase, absTarget);
-  if (rel.startsWith("..") || rel.includes("../") || rel.includes("..\\")) {
-    throw new Error("Caminho fora do diretorio permitido");
-  }
-  return absTarget;
-}
-
-async function walkMarkdown(root: string): Promise<string[]> {
-  const out: string[] = [];
-  const stack = [root];
-
-  while (stack.length) {
-    const dir = stack.pop()!;
-    const entries = await fs.readdir(dir, { withFileTypes: true });
-    for (const entry of entries) {
-      const full = join(dir, entry.name);
-      if (entry.isDirectory()) {
-        if ([".git", ".obsidian", "node_modules", ".venv", "downloads", "sources"].includes(entry.name)) continue;
-        stack.push(full);
-      } else if (entry.isFile() && extname(entry.name).toLowerCase() === ".md") {
-        out.push(full);
-      }
+  try {
+    return JSON.parse(txt) as T;
+  } catch {
+    const start = txt.lastIndexOf("{");
+    if (start >= 0) {
+      const candidate = txt.slice(start);
+      return JSON.parse(candidate) as T;
     }
+    throw new Error(`Saida invalida: ${txt.slice(0, 800)}`);
   }
-
-  return out;
 }
 
 export default function (pi: ExtensionAPI) {
@@ -72,20 +54,12 @@ export default function (pi: ExtensionAPI) {
         };
       }
 
-      let data: {
-        collection: string;
-        searched_collections?: string[];
-        topk: number;
-        chunks: Array<{ collection?: string; id?: string | null; distance?: number | null; metadata?: unknown; text: string }>;
-      };
-
+      let data: ReturnType<typeof parseRagOutput>;
       try {
-        const lines = result.stdout.trim().split(/\r?\n/).filter(Boolean);
-        const jsonLine = lines[lines.length - 1] ?? "";
-        data = JSON.parse(jsonLine);
-      } catch {
+        data = parseRagOutput(result.stdout);
+      } catch (e) {
         return {
-          content: [{ type: "text", text: `Saida invalida do script de retrieval: ${result.stdout.slice(0, 800)}` }],
+          content: [{ type: "text", text: e instanceof ParseError ? e.message : `Saida invalida do script de retrieval: ${result.stdout.slice(0, 800)}` }],
           details: {},
           isError: true,
         };
@@ -134,17 +108,121 @@ export default function (pi: ExtensionAPI) {
       }
 
       try {
-        const lines = result.stdout.trim().split(/\r?\n/).filter(Boolean);
-        const jsonLine = lines[lines.length - 1] ?? "";
-        const data = JSON.parse(jsonLine) as { collections?: string[] };
+        const data = parseLastJson<{ collections?: string[] }>(result.stdout);
         const cols = data.collections || [];
         return {
           content: [{ type: "text", text: cols.length ? cols.map((c) => `- ${c}`).join("\n") : "Nenhuma colecao." }],
           details: { collections: cols },
         };
-      } catch {
+      } catch (e) {
         return {
-          content: [{ type: "text", text: `Saida invalida: ${result.stdout.slice(0, 800)}` }],
+          content: [{ type: "text", text: e instanceof Error ? e.message : `Saida invalida: ${result.stdout.slice(0, 800)}` }],
+          details: {},
+          isError: true,
+        };
+      }
+    },
+  });
+
+  pi.registerTool({
+    name: "ingest_rag_source",
+    label: "Ingest RAG Source",
+    description: "Ingere fonte web ou arquivos no pipeline dual sink (Obsidian bruto + Chroma)",
+    parameters: Type.Object({
+      source_type: Type.Union([Type.Literal("web"), Type.Literal("file")]),
+      source_name: Type.String({ description: "slug logico da fonte (ex.: fastapi_docs)" }),
+      collection: Type.String({ description: "colecao destino (ex.: docs_fastapi_v1)" }),
+      url: Type.Optional(Type.String()),
+      input_path: Type.Optional(Type.String()),
+      allow_domain: Type.Optional(Type.String()),
+      max_pages: Type.Optional(Type.Number({ minimum: 1, maximum: 500 })),
+      max_depth: Type.Optional(Type.Number({ minimum: 0, maximum: 8 })),
+      chunk_size: Type.Optional(Type.Number({ minimum: 300, maximum: 5000 })),
+      overlap: Type.Optional(Type.Number({ minimum: 0, maximum: 1200 })),
+      embedding_model: Type.Optional(Type.String()),
+    }),
+    async execute(_toolCallId, params) {
+      const root = process.env.PROJETO_RAG_ROOT ?? "/home/ecode/Documents/projetos/projeto-rag";
+      const python = process.env.RAG_PYTHON ?? `${root}/sources/rag_memory/02 - RAG with memory/.venv/bin/python`;
+      const script = `${root}/scripts/ingest_dual_sink.py`;
+
+      const args = [
+        script,
+        "--source-type", params.source_type,
+        "--source-name", params.source_name,
+        "--collection", params.collection,
+      ];
+
+      if (params.source_type === "web") {
+        if (!params.url) {
+          return {
+            content: [{ type: "text", text: "Para source_type=web, passe o parametro url." }],
+            details: {},
+            isError: true,
+          };
+        }
+        args.push("--url", params.url);
+        if (params.allow_domain) args.push("--allow-domain", params.allow_domain);
+        args.push("--max-pages", String(params.max_pages ?? 80));
+        args.push("--max-depth", String(params.max_depth ?? 2));
+      } else {
+        if (!params.input_path) {
+          return {
+            content: [{ type: "text", text: "Para source_type=file, passe o parametro input_path." }],
+            details: {},
+            isError: true,
+          };
+        }
+        args.push("--input-path", params.input_path);
+      }
+
+      if (params.chunk_size != null) args.push("--chunk-size", String(params.chunk_size));
+      if (params.overlap != null) args.push("--overlap", String(params.overlap));
+      if (params.embedding_model) args.push("--embedding-model", params.embedding_model);
+
+      const result = await pi.exec(python, args, { timeout: 600000 });
+      if (result.code !== 0) {
+        return {
+          content: [{ type: "text", text: `Falha na ingestao dual sink: ${result.stderr || result.stdout}` }],
+          details: { code: result.code },
+          isError: true,
+        };
+      }
+
+      try {
+        const data = parseLastJson<{
+          source_type: string;
+          source_name: string;
+          collection: string;
+          vault_manifest: string;
+          items_collected: number;
+          stats: { processed: number; upserted_chunks: number; skipped_unchanged: number; errors: number };
+          state_file: string;
+          timestamp: string;
+        }>(result.stdout);
+
+        return {
+          content: [{
+            type: "text",
+            text: [
+              `✅ Ingestao concluida`,
+              `- source_type: ${data.source_type}`,
+              `- source_name: ${data.source_name}`,
+              `- collection: ${data.collection}`,
+              `- items_collected: ${data.items_collected}`,
+              `- processed: ${data.stats?.processed ?? 0}`,
+              `- upserted_chunks: ${data.stats?.upserted_chunks ?? 0}`,
+              `- skipped_unchanged: ${data.stats?.skipped_unchanged ?? 0}`,
+              `- errors: ${data.stats?.errors ?? 0}`,
+              `- manifest: ${data.vault_manifest}`,
+              `- state: ${data.state_file}`,
+            ].join("\n"),
+          }],
+          details: data,
+        };
+      } catch (e) {
+        return {
+          content: [{ type: "text", text: e instanceof Error ? e.message : `Saida invalida da ingestao: ${result.stdout.slice(0, 1000)}` }],
           details: {},
           isError: true,
         };

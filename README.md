@@ -105,6 +105,7 @@ python /home/ecode/Documents/projetos/projeto-rag/scripts/rag_daily_chat_lightra
 Para uso diario no `pi`, existe uma extensao local em `.pi/extensions/rag-obsidian-tools.ts` com:
 - `list_rag_collections`: lista colecoes do Chroma local
 - `ask_rag`: retrieval local no Chroma (`collection=auto|all|sandeco_*_v1`)
+- `ingest_rag_source`: ingestao dual sink (web ou arquivos) para Obsidian bruto + Chroma indexado
 
 Script base usado pela extensao:
 - `scripts/rag_retrieve_local.py`
