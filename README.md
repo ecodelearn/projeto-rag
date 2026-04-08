@@ -52,6 +52,37 @@ Construir uma base de conhecimento **solida, auditavel e reutilizavel** para IA 
 Script operacional:
 - `scripts/rag_daily_chat.py`
 
+## Ingestao multiformato (dual sink: Obsidian + Chroma)
+Script operacional:
+- `scripts/ingest_dual_sink.py`
+
+Exemplos:
+```bash
+cd "/home/ecode/Documents/projetos/projeto-rag/sources/rag_memory/02 - RAG with memory"
+source .venv/bin/activate
+
+# Ingerir documentacao web (crawl limitado ao dominio)
+python /home/ecode/Documents/projetos/projeto-rag/scripts/ingest_dual_sink.py \
+  --source-type web \
+  --source-name fastapi_docs \
+  --collection docs_fastapi_v1 \
+  --url https://fastapi.tiangolo.com/ \
+  --max-pages 60 \
+  --max-depth 2
+
+# Ingerir pasta de arquivos locais (pdf/docx/xlsx/html/...)
+python /home/ecode/Documents/projetos/projeto-rag/scripts/ingest_dual_sink.py \
+  --source-type file \
+  --source-name contratos_2026 \
+  --collection files_contratos_2026_v1 \
+  --input-path "/home/ecode/Documents/contratos"
+```
+
+Saidas:
+- bruto auditavel no Obsidian (`10 Fontes Brutas/Web` ou `10 Fontes Brutas/Documentos`)
+- indice vetorial no Chroma (colecao escolhida)
+- manifesto JSONL por lote + estado incremental em `analises/ingest_state/`
+
 Exemplos:
 ```bash
 cd "/home/ecode/Documents/projetos/projeto-rag/sources/rag_memory/02 - RAG with memory"
