@@ -70,6 +70,18 @@ python /home/ecode/Documents/projetos/projeto-rag/scripts/rag_daily_chat.py --mo
 python /home/ecode/Documents/projetos/projeto-rag/scripts/rag_daily_chat_lightrag.py --collection auto --mode hybrid
 ```
 
+## Integracao com pi-coding-agent (tools locais)
+Para uso diario no `pi`, existe uma extensao local em `.pi/extensions/rag-obsidian-tools.ts` com:
+- `list_rag_collections`: lista colecoes do Chroma local
+- `ask_rag`: retrieval local no Chroma (`collection=auto|all|sandeco_*_v1`)
+
+Script base usado pela extensao:
+- `scripts/rag_retrieve_local.py`
+
+Observacoes:
+- Nao depende de API HTTP separada para retrieval.
+- Requer o ambiente Python do baseline em `sources/rag_memory/02 - RAG with memory/.venv`.
+
 ## Estrutura do repositorio
 - `scripts/`: automacoes de ingestao, benchmark e operacao
 - `analises/`: resultados, comparativos e rascunho de artigo
