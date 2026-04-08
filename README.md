@@ -106,9 +106,17 @@ Para uso diario no `pi`, existe uma extensao local em `.pi/extensions/rag-obsidi
 - `list_rag_collections`: lista colecoes do Chroma local
 - `ask_rag`: retrieval local no Chroma (`collection=auto|all|sandeco_*_v1`)
 - `ingest_rag_source`: ingestao dual sink (web ou arquivos) para Obsidian bruto + Chroma indexado
+- `track_work_event`: telemetria manual leve do trabalho (sem LLM)
+- `analyze_work_patterns`: analise de padroes e gargalos diretamente dos eventos (sem LLM)
 
-Script base usado pela extensao:
+Scripts base usados pela extensao:
 - `scripts/rag_retrieve_local.py`
+- `scripts/ingest_dual_sink.py`
+
+Telemetria operacional no Obsidian:
+- `90 Operacao/Telemetria/events.jsonl` (registro continuo)
+- `90 Operacao/Telemetria/Diario/YYYY-MM-DD.md` (resumo diario automatico)
+- `90 Operacao/Telemetria/Relatorios/` (analises por periodo)
 
 Observacoes:
 - Nao depende de API HTTP separada para retrieval.
