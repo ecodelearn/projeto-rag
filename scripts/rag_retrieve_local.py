@@ -2,7 +2,12 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 from pathlib import Path
+
+# Usa modelo em cache local — evita chamadas à HuggingFace Hub
+os.environ.setdefault("HF_HUB_OFFLINE", "1")
+os.environ.setdefault("TRANSFORMERS_OFFLINE", "1")
 
 import chromadb
 from sentence_transformers import SentenceTransformer
